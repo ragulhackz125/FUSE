@@ -1,0 +1,16 @@
+$ su hduser
+$ cd /usr/local/hadoop/hadoop-2.7.2/sbin
+$ start-dfs.sh
+$ start-yarn.sh
+$ jps
+$ wget http://archive.cloudera.com/cdh5/one-click-install/trusty/amd64/cdh5-
+repository_1.0_all.deb$ sudo dpkg -i cdh5-repository_1.0_all.deb
+$ sudo apt-get update
+$ sudo apt-get install hadoop-hdfs-fuse
+$ sudo mkdir -p <mount_point>
+Sample :sudo mkdir -p file
+(set folder permission and enable share local network)
+(for name_node_hostname>:<namenode_port>
+goto (cd /usr/local/hadoop/etc/hadoop/ vi core-site.xml )
+$ sudo hadoop-fuse-dfs dfs://<name_node_hostname>:<namenode_port><mount_point>
+Sample : sudo hadoop-fuse-dfs dfs://localhost:9000 file
